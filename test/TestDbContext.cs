@@ -1,4 +1,5 @@
-﻿using Doublel.EntityAccessor.Tests.Entities;
+﻿using Doublel.EntityAccessor.test.Entities;
+using Doublel.EntityAccessor.Tests.Entities;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,5 +22,6 @@ namespace Doublel.EntityAccessor.Tests
 
         public DbSet<Role> Roles { get; set; }
         public DbSet<CreditCard> CreditCards { get; set; }
+        public DbSet<Payment> Payments { get; set; }
     }
 }

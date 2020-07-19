@@ -142,14 +142,15 @@ namespace Doublel.EntityAccessor
                 query = level == ActivityLevel.Active ? query.Where(x => x.IsActive) : query.Where(x => !x.IsActive);
             }
 
-            if (EntityShouldBeFilteredByTenant<TEntity>())
-            {
-                query = FilterByTenant(query);
-            }
-
             if (EntityShouldBeFilteredByUser<TEntity>())
             {
                 query = FilterByUser(query);
+                return query;
+            }
+
+            if (EntityShouldBeFilteredByTenant<TEntity>())
+            {
+                query = FilterByTenant(query);
             }
 
             return query;

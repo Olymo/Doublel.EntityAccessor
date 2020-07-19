@@ -6,6 +6,6 @@ namespace Doublel.EntityAccessor.Constructs
 {
     public interface IAccessibleByTenant
     {
-        string TenantIdProperty { get; set; }
+        string TenantIdProperty { get; }
     }
 }
