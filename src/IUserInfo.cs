@@ -6,9 +6,9 @@ namespace Doublel.EntityAccessor
 {
     public interface IUserInfo
     {
-        public string Identity { get; }
-        public int? UserId { get; }
-        public int? TenantId { get; }
-        public bool IgnoreUserFilter { get; }
+        string Identity { get; }
+        int? UserId { get; }
+        int? TenantId { get; }
+        bool IgnoreUserFilter { get; }
     }
 }

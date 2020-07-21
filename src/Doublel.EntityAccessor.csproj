@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>Doublel.EntityAccessor</PackageId>
+    <Version>1.1.1</Version>
+    <Authors>Luka Lukić</Authors>
+    <Company>Olymo</Company>
+    <Description>
+      Library used to support both multy tenancy and user level entity access built on top of Entity Framework Core.
+    </Description>
+    <RepositoryUrl>https://github.com/Olymo/Doublel.EntityAccessor</RepositoryUrl>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.1.8" />
+    <PackageReference Include="Doublel.ReflexionExtensions" Version="1.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
+  </ItemGroup>
+
+</Project>
