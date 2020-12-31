@@ -7,7 +7,7 @@ using System.Data.Common;
 
 namespace Doublel.EntityAccessor.Tests
 {
-    public class TestDbContext : DbContext, IDisposable
+    public class TestDbContext : EntityAccessorContext, IDisposable
     {
         private readonly DbConnection _connection;
 
