@@ -84,16 +84,24 @@ namespace Doublel.EntityAccessor
             SetTenantLevelProperties(entity);
             SetUserLevelProperties(entity);
 
+            entity.CreatedAt = DateTime.UtcNow;
+            entity.AddedBy = _userInfo.Identity;
+
             _context.Set<TEntity>().Add(entity);
         }
 
         public virtual void AddRange<TEntity>(IEnumerable<TEntity> entities)
             where TEntity : Entity
         {
+            var now = DateTime.UtcNow;
+
             foreach (var entity in entities)
             {
                 SetTenantLevelProperties(entity);
                 SetUserLevelProperties(entity);
+
+                entity.CreatedAt = now;
+                entity.AddedBy = _userInfo.Identity;
             }
 
             _context.Set<TEntity>().AddRange(entities);
@@ -122,6 +130,10 @@ namespace Doublel.EntityAccessor
         {
             SetTenantLevelProperties(entity);
             SetUserLevelProperties(entity);
+
+            entity.UpdatedAt = DateTime.UtcNow;
+            entity.LastModifiedBy = _userInfo.Identity;
+
             _context.Set<TEntity>().Update(entity);
         }
 
