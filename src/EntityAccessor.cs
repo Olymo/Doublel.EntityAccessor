@@ -45,17 +45,17 @@ namespace Doublel.EntityAccessor
         public virtual void Remove<TEntity>(int id)
             where TEntity : Entity
         {
-            var itemToDelete = FindAndThrow<TEntity>(id);
+            var itemToDelete = FindAndThrow<TEntity>(id, false);
 
             itemToDelete.DeletedAt = DateTime.UtcNow;
             itemToDelete.DeletedBy = _userInfo.Identity;
             itemToDelete.IsActive = false;
         }
 
-        public TEntity FindAndThrow<TEntity>(int id)
+        public TEntity FindAndThrow<TEntity>(int id, bool onlyActive = true)
             where TEntity : Entity
         {
-            var item = Find<TEntity>(id, false);
+            var item = Find<TEntity>(id, onlyActive);
 
             if (item == null)
             {
@@ -68,7 +68,7 @@ namespace Doublel.EntityAccessor
         public virtual void Deactivate<TEntity>(int id)
             where TEntity : Entity
         {
-            var itemToDeactivate = FindAndThrow<TEntity>(id);
+            var itemToDeactivate = FindAndThrow<TEntity>(id, false);
 
             if (!itemToDeactivate.IsActive)
             {
